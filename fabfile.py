@@ -14,12 +14,12 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 #from fabric.context_managers import cd, lcd, settings, hide
 
 # CHANGEME
-env.hosts = ['user@qn.example.com']
-env.code_dir = '/srv/www/qn'
-env.project_dir = '/srv/www/qn/qn'
-env.static_root = '/srv/www/qn/static/'
-env.virtualenv = '/srv/www/qn/.virtualenv'
-env.code_repo = 'git@github.com:user/qn.git'
+env.hosts = ['admin@162.243.49.35:44880']
+env.code_dir = '/home/admin/projects/qn'
+env.project_dir = '/home/admin/projects/qn/qn'
+env.static_root = '/home/admin/projects/qn/static/'
+env.virtualenv = '/home/admin/.virtualenvs/qn'
+env.code_repo = 'git@github.com:serkansokmen/qn.git'
 env.django_settings_module = 'qn.settings'
 
 # Python version
