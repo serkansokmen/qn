@@ -20,7 +20,6 @@
   <meta name="viewport" content="width=device-width">
 
   {% compress css %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   {% block css %}{% endblock %}
   {% endcompress %}
   <style>
@@ -29,14 +28,9 @@
       padding-bottom: 40px;
     }
   </style>
-  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-  <!-- All JavaScript at the bottom, except this Modernizr build.
-       Modernizr enables HTML5 elements & feature detects for optimal performance.
-       Create your own custom Modernizr build: www.modernizr.com/download/ -->
-  {% compress js %}
-  <script src="{{ STATIC_URL }}js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  {% endcompress %}
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cosmo/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  {% compress js %}{% endcompress %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
@@ -49,12 +43,15 @@
 
   </header>
 
-  <div role="main">
-    {% block content %}{% endblock %}
+  <div role="main" class="container">
+    <div class="header">
+        <h3 class="text-muted">QN</h3>
+      </div>
+      {% block content %}{% endblock %}
   </div>
 
   <footer>
-    <p>&copy; Company 2013</p>
+    {# <p>&copy; Company 2013</p> #}
   </footer>
 
 
@@ -64,11 +61,10 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.9.1.min.js"><\/script>')</script>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
   <!-- scripts concatenated and minified via django-compressor -->
   {% compress js %}
-  <script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
-  <script src="{{ STATIC_URL }}js/plugins.js"></script>
-  <script src="{{ STATIC_URL }}js/main.js"></script>
   {% endcompress %}
   <!-- end scripts -->
 
@@ -80,6 +76,14 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
+
+  <script>
+  eventsApp.config(function ($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[{');
+    $interpolateProvider.endSymbol('}]}');
+  });
+  </script>
+
 {% endblock %}
 </body>
 </html>
